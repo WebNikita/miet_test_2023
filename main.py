@@ -1,3 +1,5 @@
+import csv
+
 student_data = [
     {"name": "Андрей", "surname": "Попов", "grade": 5, "project_id": "1"},
     {"name": "Степан", "surname": "Васильев", "grade": None, "project_id": "2"},
@@ -40,9 +42,25 @@ def process_student_data(data):
 
     return data
 
+def save_to_csv(data, filename):
+    """
+    Записываем данны в CSV формате в файл.
+
+    Args:
+    data (list of dict): Список словарей, каждый из которых содержит данные студента.
+    filename (str): Имя файла для сохранения.
+    """
+
+    with open(filename, mode="w", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=data[0].keys())
+        writer.writeheader()
+        writer.writerows(data)
+
 def main():
     clear_data = process_student_data(student_data)
     
+    save_to_csv(clear_data, "student_new.csv")
+
     for student in clear_data:
         if student["name"] == "Владимир" and student["surname"] == "Хадаров":
             vladimir_grade = student["grade"]
