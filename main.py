@@ -34,10 +34,15 @@ def process_student_data(data):
 
     average_grade = calculate_average_grade(grades)
 
-    print(average_grade)
+    for student in data:
+        if student["grade"] is None:
+            student["grade"] = average_grade
+
+    return data
 
 def main():
-    process_student_data(student_data)
+    clear_data = process_student_data(student_data)
+    print(clear_data)
 
 main()
 
