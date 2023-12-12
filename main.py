@@ -42,7 +42,13 @@ def process_student_data(data):
 
 def main():
     clear_data = process_student_data(student_data)
-    print(clear_data)
+    
+    for student in clear_data:
+        if student["name"] == "Владимир" and student["surname"] == "Хадаров":
+            vladimir_grade = student["grade"]
+            vladimit_project_id = student["project_id"]
+
+    print(f"Ты получил: {vladimir_grade}, за проект - {vladimit_project_id}")
 
 main()
 
