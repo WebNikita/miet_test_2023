@@ -2,7 +2,17 @@ import csv
 
 
 def find_student(file_path,project_id):
+    """
+    Функция для поиска студента который выполнял проект с определенным ID.
+    В функции реализован линейный алгоритм поиска.
+
+    Args:
+        file_path (str): Имя файла для чтения.
+        project_id (str): ID проекта.
+    """
+
     flag = False
+    
     try:
         with open(file_path, mode="r") as file:
             reader = csv.DictReader(file)
@@ -13,9 +23,13 @@ def find_student(file_path,project_id):
         if not flag:
             print("Ничего не найдено.")    
     except FileNotFoundError:
-        return "[ERROR] Файл не найден"
+        print("[ERROR] Файл не найден")
 
 def main():
+    """
+    Главная функция. Функция обрабатывает ввод пользователя.
+    """
+
     while True:
         user_input = input("Введите ID проекта или 'СТОП', для выхода: ")
         if user_input.lower() == "стоп":
