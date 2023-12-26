@@ -83,7 +83,6 @@ def insertion_sort(array, key):
     
     return array[::-1]
 
-
 def get_top_students(array, count = 3):
     """
     Получаем топ студентов по оценкам.
@@ -118,7 +117,6 @@ def read_csv(file_path):
             
     return student_data
     
-
 def main():
     # clear_data = process_student_data(student_data)
     
